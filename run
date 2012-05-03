@@ -1,0 +1,11 @@
+#!/bin/bash
+
+exec 2>&1
+
+NODE_JS="/usr/local/bin/node"
+STATSD_JS="/usr/local/lib/node_modules/stats.js"
+STATSD_CONFIG="/usr/local/etc/statsdConfig.js"
+
+USER="nobody"
+
+exec setuidgid $USER $NODE_JS $STATSD_JS $STATSD_CONFIG
